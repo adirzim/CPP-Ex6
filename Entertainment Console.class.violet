@@ -49,6 +49,7 @@
     <void property="name"> 
      <void property="text"> 
       <string>«interface»
+&lt;&lt;Abstract Factory&gt;&gt;
 PlayerFactory</string> 
      </void> 
     </void> 
