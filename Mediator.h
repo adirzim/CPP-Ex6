@@ -1,9 +1,10 @@
 #ifndef MEDIATOR_H
 #define  MEDIATOR_H
 
+#include <map>
+#include <list>
 #include "Common.h"
 #include "Player_Factory.h"
-#include <list>
 #include "Player.h"
 
 using namespace std;
@@ -35,8 +36,8 @@ private:
 	//private members
 	Player* active_Player;								//current Active player
 	list<Player*> devices;								//List of all console devices
-	list<Player_Factory*>* factories;					//List of all the companies Factory
+	map<Company,Player_Factory*>* factories;			//List of all the companies Factory
 
-}
+};
 
 #endif

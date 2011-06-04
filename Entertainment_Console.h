@@ -4,8 +4,6 @@
 #include "Mediator.h"
 #include "Common.h"
 
-using namespace std;
-
 class Entertainment_Console{
 
 public:

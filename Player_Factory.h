@@ -1,6 +1,7 @@
 #ifndef PLAYER_FACTORY_H_
 #define PLAYER_FACTORY_H_
 
+#include <map>
 #include "Common.h"
 #include "JVC_Player_Factory.h"
 #include "SONY_Player_Factory.h"
@@ -13,7 +14,7 @@ class Player_Factory
 public:
 
 	//static function
-	static list<Player_Factory*>& CreatePlayerFactories();		//creates all player factories
+	static map<Company,Player_Factory*>* CreatePlayerFactories();		//creates all player factories
 
 	Player_Factory();											//CTOR
 	virtual ~Player_Factory();									//DTOR
