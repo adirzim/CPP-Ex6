@@ -3,9 +3,8 @@
 
 #include <map>
 #include "Common.h"
-#include "JVC_Player_Factory.h"
-#include "SONY_Player_Factory.h"
-#include "Samsung_Player_Factory.h"
+#include "Player.h"
+
 
 using namespace std;
 
@@ -23,9 +22,10 @@ public:
 	Company company;											//Factory company name
 
 	//Factory Methods
-	virtual Player* CreateVCRPlayer() = 0;					//Create VCR player 
-	virtual Player* CreateCDPlayer() = 0;						//Create CD player
-	virtual Player* CreateDVDPlayer() = 0;					//Create CD player
+	virtual Player *CreateVCRPlayer() = 0;					//Create VCR player 
+	virtual Player *CreateCDPlayer() = 0;					//Create CD player
+	virtual Player *CreateDVDPlayer() = 0;					//Create CD player
 	
 };
+
 #endif

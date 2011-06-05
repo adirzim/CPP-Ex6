@@ -26,6 +26,6 @@ private:
 	
 	Mediator md;
 
-}
+};
 
 #endif

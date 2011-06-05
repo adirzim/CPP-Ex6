@@ -42,7 +42,7 @@ void Mediator::SetActiveDevice( Type type, Company company )
 
 	//TODO: I don't know how to iterate on abstract class
 	for ( it=devices.begin() ; it != devices.end(); it++ ){
-		if((*(*it)-type == type) && (*(*it).company == company)){
+		if((*it)->type == type && (*it)->company == company){
 			active_Player = *it;
 		}
 	}

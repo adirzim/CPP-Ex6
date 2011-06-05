@@ -23,8 +23,8 @@ public:
 private:
 
 	//disable copy CTOR & assignment operator
-	JVC_CD_Player(constJVC_CD_Player& jcp);					//copy CTOR
-	JVC_CD_Player& operator=(constJVC_CD_Player& jcp);		//assignment operator
+	JVC_CD_Player(const JVC_CD_Player& jcp);					//copy CTOR
+	JVC_CD_Player& operator=(const JVC_CD_Player& jcp);		//assignment operator
 
 };
 

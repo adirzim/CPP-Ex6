@@ -12,15 +12,15 @@ public:
 	~Samsung_Player_Factory();													//DTOR
 
 	//Factory Methods
-	Player* CreateVCRPlayer();												//Create VCR player 
-	Player* CreateCDPlayer();													//Create CD player
-	Player* CreateDVDPlayer();												//Create CD player
+	//Player* CreateVCRPlayer();												//Create VCR player 
+	//Player* CreateCDPlayer();													//Create CD player
+	//Player* CreateDVDPlayer();												//Create CD player
 
 
 private:
 
 	//disable copy constructor & assignment operator
-	Samsung_Player_Factory(Const Samsung_Player_Factory& jcf);					//copy CTOR
+	Samsung_Player_Factory(const Samsung_Player_Factory& jcf);					//copy CTOR
 	Samsung_Player_Factory& operator=(const Samsung_Player_Factory& jcf);		//assignment operator
 
 };
