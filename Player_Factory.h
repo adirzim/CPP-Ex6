@@ -13,7 +13,8 @@ class Player_Factory
 public:
 
 	//static function
-	static map<Company,Player_Factory*>* CreatePlayerFactories();		//creates all player factories
+	//static map<Company,Player_Factory*>* CreatePlayerFactories();		//creates all player factories
+    static Player_Factory& GetFactory(Company comapny);
 
 	Player_Factory();											//CTOR
 	virtual ~Player_Factory();									//DTOR
@@ -25,6 +26,10 @@ public:
 	virtual Player *CreateVCRPlayer() = 0;					//Create VCR player 
 	virtual Player *CreateCDPlayer() = 0;					//Create CD player
 	virtual Player *CreateDVDPlayer() = 0;					//Create CD player
+
+private:
+
+
 	
 };
 

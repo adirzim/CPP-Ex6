@@ -23,8 +23,8 @@ public:
 private:
 
 	//disable copy CTOR & assignment operator
-	Samsung_DVD_Player(constSamsung_DVD_Player& sdp);					//copy CTOR
-	Samsung_DVD_Player& operator=(constSamsung_DVD_Player& sdp);		//assignment operator
+	Samsung_DVD_Player(const Samsung_DVD_Player& sdp);					//copy CTOR
+	Samsung_DVD_Player& operator=(const Samsung_DVD_Player& sdp);		//assignment operator
 
 };
 

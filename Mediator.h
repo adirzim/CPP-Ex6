@@ -2,7 +2,7 @@
 #define  MEDIATOR_H
 
 #include <map>
-#include <list>
+#include <utility>
 #include "Common.h"
 #include "Player_Factory.h"
 #include "Player.h"
@@ -35,8 +35,8 @@ private:
 
 	//private members
 	Player* active_Player;								//current Active player
-	list<Player*> devices;								//List of all console devices
-	map<Company,Player_Factory*>* factories;			//List of all the companies Factory
+	map<pair<Company, Type>, Player*> devices;			//Map of all console devices
+	//map<Company,Player_Factory*>* factories;			//List of all the companies Factory
 
 };
 

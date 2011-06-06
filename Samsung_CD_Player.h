@@ -23,8 +23,8 @@ public:
 private:
 
 	//disable copy CTOR & assignment operator
-	Samsung_CD_Player(constSamsung_CD_Player& scp);					//copy CTOR
-	Samsung_CD_Player& operator=(constSamsung_CD_Player& scp);		//assignment operator
+	Samsung_CD_Player(const Samsung_CD_Player& scp);					//copy CTOR
+	Samsung_CD_Player& operator=(const Samsung_CD_Player& scp);		//assignment operator
 
 };
 
