@@ -1,4 +1,5 @@
 #include "Player_Factory.h"
+#include "Common.h"
 #include "Samsung_Player_Factory.h"
 #include "SONY_Player_Factory.h"
 #include "JVC_Player_Factory.h"
@@ -9,7 +10,16 @@ Samsung_Player_Factory samsungFactory;
 
 
 
-#include "Common.h"
+
+Player_Factory::Player_Factory(){
+
+}
+
+Player_Factory::~Player_Factory(){
+
+}
+
+
 
 Player_Factory& Player_Factory::GetFactory(Company company){
 

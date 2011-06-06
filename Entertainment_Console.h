@@ -8,13 +8,14 @@ class Entertainment_Console{
 
 public:
 
+
 	Entertainment_Console();													//CTOR
 	~Entertainment_Console();													//DTOR
 
 	//Public Methods
 	void BuyNewDevice(Type type, Company company);								//add new device to the console
 	void Play(Type type, Company company);										//Play the relevent device
-	void Stop(Type type, Company company);										//Stop the relevant device
+	void StopActiveDevice();																//Stop the relevant device
 	void Forward(Type type, Company company);									//Forward the relevant device
 	void Rewind(Type type, Company company);									//Rewind the relelvant device
 

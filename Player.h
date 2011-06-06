@@ -20,6 +20,19 @@ public:
 	virtual void stop() = 0;			//stop
 	virtual void forward() = 0;			//forward
 	virtual void rewind() = 0;			//rewind
+
+	bool isPlaying() const;
+
+protected:
+
+	bool playing;						//True if device is currently playing
 	
 };
+
+
+inline bool Player::isPlaying() const
+{
+	return playing;
+}
+
 #endif 

@@ -1,9 +1,8 @@
 #ifndef Samsung_CD_PLAYER_H_
 #define Samsung_CD_PLAYER_H_
 
-#include "Common.h"
 #include "Player.h"
-#include <ostream>
+#include <iostream>
 
 using namespace std;
 
@@ -22,10 +21,45 @@ public:
 
 private:
 
-	//disable copy CTOR & assignment operator
+	//disable copy CTOR & assignment operator			//TOOD: Remove this?
 	Samsung_CD_Player(const Samsung_CD_Player& scp);					//copy CTOR
-	Samsung_CD_Player& operator=(const Samsung_CD_Player& scp);		//assignment operator
+	Samsung_CD_Player& operator=(const Samsung_CD_Player& scp);		//assignment operator	
 
 };
+
+Samsung_CD_Player::Samsung_CD_Player()
+{
+
+}
+
+Samsung_CD_Player::~Samsung_CD_Player()
+{
+
+}
+
+
+inline void Samsung_CD_Player::play()
+{
+	cout << "Samsung CD Player is now playing" << endl;
+	playing = true;
+}
+
+inline void Samsung_CD_Player::stop()
+{
+	cout << "Samsung CD Player is stopped" << endl;
+	playing = false;
+}
+
+inline void Samsung_CD_Player::forward()
+{
+	cout << "Samsung CD Player is fast forwarding" << endl;
+}
+
+inline void Samsung_CD_Player::rewind()
+{
+	cout << "Samsung CD Player is rewinding" << endl;
+}
+
+
 
 #endif

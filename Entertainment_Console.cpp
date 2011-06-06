@@ -1,5 +1,15 @@
 #include "Entertainment_Console.h"
 
+Entertainment_Console::Entertainment_Console()
+{
+
+}
+
+Entertainment_Console::~Entertainment_Console()
+{
+
+}
+
 
 void Entertainment_Console::BuyNewDevice( Type type, Company company )
 {
@@ -8,13 +18,12 @@ void Entertainment_Console::BuyNewDevice( Type type, Company company )
 
 void Entertainment_Console::Play( Type type, Company company )
 {
-	md.SetActiveDevice(type,company);
-	md.Play();
+	md.Play(type, company);
 }
 
-void Entertainment_Console::Stop( Type type, Company company )
+void Entertainment_Console::StopActiveDevice()
 {
-	md.Stop(type,company);
+	md.StopActiveDevice();
 }
 
 void Entertainment_Console::Forward( Type type, Company company )
@@ -26,3 +35,6 @@ void Entertainment_Console::Rewind( Type type, Company company )
 {
 	md.Rewind(type,company);
 }
+
+
+

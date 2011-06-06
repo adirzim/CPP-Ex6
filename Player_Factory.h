@@ -12,8 +12,6 @@ class Player_Factory
 {
 public:
 
-	//static function
-	//static map<Company,Player_Factory*>* CreatePlayerFactories();		//creates all player factories
     static Player_Factory& GetFactory(Company comapny);
 
 	Player_Factory();											//CTOR

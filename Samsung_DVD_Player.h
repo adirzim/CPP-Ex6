@@ -1,9 +1,8 @@
 #ifndef SAMSUNG_DVD_PLAYER_H_
 #define SAMSUNG_DVD_PLAYER_H_
 
-#include "Common.h"
 #include "Player.h"
-#include <ostream>
+#include <iostream>
 
 using namespace std;
 
@@ -27,5 +26,39 @@ private:
 	Samsung_DVD_Player& operator=(const Samsung_DVD_Player& sdp);		//assignment operator
 
 };
+
+Samsung_DVD_Player::Samsung_DVD_Player()
+{
+
+}
+
+Samsung_DVD_Player::~Samsung_DVD_Player()
+{
+
+}
+
+inline void Samsung_DVD_Player::play()
+{
+	cout << "Samsung DVD Player is now playing" << endl;
+	playing = true;
+}
+
+inline void Samsung_DVD_Player::stop()
+{
+	cout << "Samsung DVD Player is stopped" << endl;
+	playing = false;
+}
+
+inline void Samsung_DVD_Player::forward()
+{
+	cout << "Samsung DVD Player is fast forwarding" << endl;
+}
+
+inline void Samsung_DVD_Player::rewind()
+{
+	cout << "Samsung DVD Player is rewinding" << endl;
+}
+
+
 
 #endif

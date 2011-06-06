@@ -1,69 +1,130 @@
 #include "Mediator.h"
+#include <iostream>
 
 
 Mediator::Mediator()
 {
-	//factories = Player_Factory::CreatePlayerFactories();
+	active_Player = NULL; //No active player
 }
 
 Mediator::~Mediator()
 {
-	//TODO:remove all devices
+	//Delete all of the players and free memory
+	for (iter_t it = devices.begin(); it != devices.end(); it++){
+		delete it->second;
+	}
 
-
-	//remove all factories
-	//delete factories;
+	devices.clear();
+	
 }
 
 void Mediator::AddDevice( Type type, Company company )
 {
-    
-    
+	
+	Player *player;
 
+	//Get relevant factory
+	Player_Factory& factory = Player_Factory::GetFactory(company);
+	
+
+	//Create the player according to type (from factory);
 	switch (type)
 	{
 	case VCR:
-        devices.insert(pair<pair<Company,Type>,Player *>(pair<Company,Type>(company,type), Player_Factory::GetFactory(company).CreateVCRPlayer()));
-        		
+		player = factory.CreateVCRPlayer();
+						
 		break;
 	case CD:
-		//devices.push_front((*(factories->find(company)->second)).CreateCDPlayer());
+		player = factory.CreateCDPlayer();
+		
 		break;
 	case DVD:
-		//devices.push_front((*(factories->find(company)->second)).CreateDVDPlayer());
+		player = factory.CreateDVDPlayer();
+		
 		break;
 	}
+
+	//Insert player into devices list
+	devices.insert(pair<deviceKey,Player *>(deviceKey(company,type), player));
+
 }
 
 void Mediator::RemoveDevice( Type type, Company company )
 {
-	//TODO: Implement
+	iter_t it = devices.find(pair<Company,Type>(company, type));
+
+	if (it != devices.end()){
+		
+		//Delete player
+		delete it->second;
+
+		//Remove device pointer from device list
+		devices.erase(it);
+
+	}
+	else
+		cout << "No such device in console!" << endl;
 }
 
-void Mediator::SetActiveDevice( Type type, Company company )
+bool Mediator::SetActiveDevice( Type type, Company company )
 {
+		
+	//Find Requested Player
+	iter_t it = devices.find(pair<Company,Type>(company, type));
+		
+	if (it != devices.end()){
+
+		//If device found is already active device - do nothing
+		if (it->second == active_Player){
+			return false;
+		}
+
+		StopActiveDevice();
+		active_Player = it->second;
+		return true;
+	}
+
+	return false;
+}
+
+void Mediator::Play(Type type, Company company)
+{
+	//Set requested device
+	if (SetActiveDevice(type, company)){
+		active_Player->play(); //Play on successful set
+	}
+	else{
+		cout << "Device already active or no such device in console" << endl;
+	}
+
 	
-
-    devices.find(
-
 }
 
-void Mediator::Play()
+void Mediator::StopActiveDevice()
 {
-	//TODO: Implement
-}
-
-void Mediator::Stop( Type type, Company company )
-{
-
+	if (active_Player != NULL && active_Player->isPlaying()){
+		active_Player->stop();
+	}
 }
 
 void Mediator::Forward( Type type, Company company )
 {
+	iter_t it = devices.find(pair<Company,Type>(company, type));
 
+	if (it != devices.end()){
+		it->second->forward();
+	}
+	else
+		cout << "No such device in console!" << endl;
 }
 
 void Mediator::Rewind( Type type, Company company )
 {
+	iter_t it = devices.find(pair<Company,Type>(company, type));
 
+	if (it != devices.end()){
+		it->second->rewind();
+	}
+	else
+		cout << "No such device in console!" << endl;
 }

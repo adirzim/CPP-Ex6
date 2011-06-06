@@ -13,17 +13,20 @@ class Mediator{
 
 public:
 
+	typedef pair<Company,Type> deviceKey;
+	typedef map<deviceKey, Player*>::iterator iter_t;
+
 	Mediator();											//CTOR
 	~Mediator();										//DTOR
 
 	//Mediator public methods
 	void AddDevice(Type type, Company company);			//add new device to the mediator
 	void RemoveDevice(Type type, Company company);		//remove device from the mediator
-	void SetActiveDevice(Type type, Company company);	//set the Active device according to the requirement
+	bool SetActiveDevice(Type type, Company company);	//set the Active device according to the requirement. Return true on success
 
 	//devices public methods
-	void Play();										//Play on the current Active device and stop all the other devices
-	void Stop(Type type, Company company);				//Stop the relevant device
+	void Play(Type type, Company company);				//Play on the current Active device and stop all the other devices
+	void StopActiveDevice();							//Stop the relevant device
 	void Forward(Type type, Company company);			//Forward the relevant device
 	void Rewind(Type type, Company company);			//Rewind the relevant device
 
@@ -35,7 +38,7 @@ private:
 
 	//private members
 	Player* active_Player;								//current Active player
-	map<pair<Company, Type>, Player*> devices;			//Map of all console devices
+	map<deviceKey, Player*> devices;			//Map of all console devices
 	//map<Company,Player_Factory*>* factories;			//List of all the companies Factory
 
 };
