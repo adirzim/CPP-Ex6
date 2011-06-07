@@ -28,4 +28,38 @@ private:
 
 };
 
+SONY_VCR_Player::SONY_VCR_Player()
+{
+	type = VCR;
+	company = SONY;
+}
+
+SONY_VCR_Player::~SONY_VCR_Player()
+{
+
+}
+
+
+inline void SONY_VCR_Player::play()
+{
+	cout << "SONY VCR Player is now playing" << endl;
+	playing = true;
+}
+
+inline void SONY_VCR_Player::stop()
+{
+	cout << "SONY VCR Player is stopped" << endl;
+	playing = false;
+}
+
+inline void SONY_VCR_Player::forward()
+{
+	cout << "SONY VCR Player is fast forwarding" << endl;
+}
+
+inline void SONY_VCR_Player::rewind()
+{
+	cout << "SONY VCR Player is rewinding" << endl;
+}
+
 #endif

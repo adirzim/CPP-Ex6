@@ -7,9 +7,8 @@
 //TODO: add here all the factories decelerations
 //JVC_Player_Factory jvcFactory;
 Samsung_Player_Factory samsungFactory;
-
-
-
+SONY_Player_Factory sonyFactory;
+JVC_Player_Factory jvcFactory;
 
 Player_Factory::Player_Factory(){
 
@@ -19,22 +18,21 @@ Player_Factory::~Player_Factory(){
 
 }
 
-
-
 Player_Factory& Player_Factory::GetFactory(Company company){
 
     switch (company){
-
-
-    case SAMSUNG:
-        return samsungFactory;
-        break;
-
-	//TODO: add different kind of Factories
-    default:
-        return samsungFactory;
-        break;
-
+			case SAMSUNG:
+				return samsungFactory;
+				break;
+			case SONY:
+				return sonyFactory;
+				break;
+			case JVC:
+				return jvcFactory;
+				break;
+			default:
+				return samsungFactory;
+				break;
     }
 
     

@@ -30,7 +30,8 @@ private:
 
 Samsung_VCR_Player::Samsung_VCR_Player()
 {
-
+	type = VCR;
+	company = SAMSUNG;
 }
 
 Samsung_VCR_Player::~Samsung_VCR_Player()

@@ -29,7 +29,8 @@ private:
 
 Samsung_DVD_Player::Samsung_DVD_Player()
 {
-
+	type = DVD;
+	company = SAMSUNG;
 }
 
 Samsung_DVD_Player::~Samsung_DVD_Player()

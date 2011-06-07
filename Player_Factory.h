@@ -14,11 +14,11 @@ public:
 
     static Player_Factory& GetFactory(Company comapny);
 
-	Player_Factory();											//CTOR
-	virtual ~Player_Factory();									//DTOR
+	Player_Factory();										//CTOR
+	virtual ~Player_Factory();								//DTOR
 
 	//Members
-	Company company;											//Factory company name
+	Company company;										//Factory company name
 
 	//Factory Methods
 	virtual Player *CreateVCRPlayer() = 0;					//Create VCR player 

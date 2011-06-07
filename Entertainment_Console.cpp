@@ -1,10 +1,12 @@
 #include "Entertainment_Console.h"
 
+//TODO: can we remove this
 Entertainment_Console::Entertainment_Console()
 {
 
 }
 
+//TODO: can we remove this
 Entertainment_Console::~Entertainment_Console()
 {
 

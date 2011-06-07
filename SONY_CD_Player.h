@@ -23,9 +23,43 @@ public:
 private:
 
 	//disable copy CTOR & assignment operator
-	SONY_CD_Player(constSONY_CD_Player& scp);					//copy CTOR
-	SONY_CD_Player& operator=(constSONY_CD_Player& scp);		//assignment operator
+	SONY_CD_Player(const SONY_CD_Player& scp);					//copy CTOR
+	SONY_CD_Player& operator=(const SONY_CD_Player& scp);		//assignment operator
 
 };
+
+SONY_CD_Player::SONY_CD_Player()
+{
+	type = CD;
+	company = SONY;
+}
+
+SONY_CD_Player::~SONY_CD_Player()
+{
+
+}
+
+
+inline void SONY_CD_Player::play()
+{
+	cout << "SONY CD Player is now playing" << endl;
+	playing = true;
+}
+
+inline void SONY_CD_Player::stop()
+{
+	cout << "SONY CD Player is stopped" << endl;
+	playing = false;
+}
+
+inline void SONY_CD_Player::forward()
+{
+	cout << "SONY CD Player is fast forwarding" << endl;
+}
+
+inline void SONY_CD_Player::rewind()
+{
+	cout << "SONY CD Player is rewinding" << endl;
+}
 
 #endif

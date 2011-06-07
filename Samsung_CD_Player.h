@@ -21,15 +21,16 @@ public:
 
 private:
 
-	//disable copy CTOR & assignment operator			//TOOD: Remove this?
-	Samsung_CD_Player(const Samsung_CD_Player& scp);					//copy CTOR
+	//disable copy CTOR & assignment operator						//TOOD: Remove this?
+	Samsung_CD_Player(const Samsung_CD_Player& scp);				//copy CTOR
 	Samsung_CD_Player& operator=(const Samsung_CD_Player& scp);		//assignment operator	
 
 };
 
 Samsung_CD_Player::Samsung_CD_Player()
 {
-
+	type = CD;
+	company = SAMSUNG;
 }
 
 Samsung_CD_Player::~Samsung_CD_Player()

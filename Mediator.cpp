@@ -55,7 +55,6 @@ void Mediator::RemoveDevice( Type type, Company company )
 	iter_t it = devices.find(pair<Company,Type>(company, type));
 
 	if (it != devices.end()){
-		//TODO: make delete on the pointer or on the content
 		//Delete player
 		delete it->second;
 
@@ -113,6 +112,11 @@ void Mediator::Forward( Type type, Company company )
 	iter_t it = devices.find(pair<Company,Type>(company, type));
 
 	if (it != devices.end()){
+		//if it is the active device stop playing
+		if((it->first.first == active_Player->company) && (it->first.second == active_Player->type)){
+			active_Player = NULL;
+		}
+		//forward
 		it->second->forward();
 	}
 	else
@@ -124,6 +128,11 @@ void Mediator::Rewind( Type type, Company company )
 	iter_t it = devices.find(pair<Company,Type>(company, type));
 
 	if (it != devices.end()){
+		//if it is the active device stop playing
+		if((it->first.first == active_Player->company) && (it->first.second == active_Player->type)){
+			active_Player = NULL;
+		}
+		//rewind
 		it->second->rewind();
 	}
 	else

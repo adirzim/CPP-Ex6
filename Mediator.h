@@ -1,5 +1,5 @@
 #ifndef MEDIATOR_H
-#define  MEDIATOR_H
+#define MEDIATOR_H
 
 #include <map>
 #include <utility>
@@ -22,11 +22,10 @@ public:
 	//Mediator public methods
 	void AddDevice(Type type, Company company);			//add new device to the mediator
 	void RemoveDevice(Type type, Company company);		//remove device from the mediator
-	//TODO: SetActiveDevice make private and use from play function
-	bool SetActiveDevice(Type type, Company company);	//set the Active device according to the requirement. Return true on success
 
 	//devices public methods
 	void Play(Type type, Company company);				//Play on the current Active device and stop all the other devices
+	//TODO: make this function available to all devices
 	void StopActiveDevice();							//Stop the relevant device
 	void Forward(Type type, Company company);			//Forward the relevant device
 	void Rewind(Type type, Company company);			//Rewind the relevant device
@@ -39,8 +38,11 @@ private:
 
 	//private members
 	Player* active_Player;								//current Active player
-	map<deviceKey, Player*> devices;			//Map of all console devices
+	map<deviceKey, Player*> devices;					//Map of all console devices
 	//map<Company,Player_Factory*>* factories;			//List of all the companies Factory
+
+	bool SetActiveDevice(Type type, Company company);	//set the Active device according to the requirement. 
+														//and stop the previous Active device Return true on success
 
 };
 
