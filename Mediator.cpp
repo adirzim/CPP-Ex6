@@ -30,6 +30,7 @@ void Mediator::AddDevice( Type type, Company company )
 	//Create the player according to type (from factory);
 	switch (type)
 	{
+		//TODO: extract to static method in player in order to be able to add more devices tye in the future
 	case VCR:
 		player = factory.CreateVCRPlayer();
 						
@@ -54,7 +55,7 @@ void Mediator::RemoveDevice( Type type, Company company )
 	iter_t it = devices.find(pair<Company,Type>(company, type));
 
 	if (it != devices.end()){
-		
+		//TODO: make delete on the pointer or on the content
 		//Delete player
 		delete it->second;
 

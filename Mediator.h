@@ -13,8 +13,8 @@ class Mediator{
 
 public:
 
-	typedef pair<Company,Type> deviceKey;
-	typedef map<deviceKey, Player*>::iterator iter_t;
+	typedef pair<Company,Type> deviceKey;				//Pair of company and type
+	typedef map<deviceKey, Player*>::iterator iter_t;   //map of deviceKey and player
 
 	Mediator();											//CTOR
 	~Mediator();										//DTOR
@@ -22,6 +22,7 @@ public:
 	//Mediator public methods
 	void AddDevice(Type type, Company company);			//add new device to the mediator
 	void RemoveDevice(Type type, Company company);		//remove device from the mediator
+	//TODO: SetActiveDevice make private and use from play function
 	bool SetActiveDevice(Type type, Company company);	//set the Active device according to the requirement. Return true on success
 
 	//devices public methods
