@@ -47,7 +47,7 @@ inline void  operator delete[](void* ptr) {
 #undef	DEBUG_NEW
 #endif
 
-#ifdef 	_DEBUG
+#ifdef  _DEBUG
 #define DEBUG_NEW new(__FILE__, __LINE__)
 #else
 #define DEBUG_NEW new

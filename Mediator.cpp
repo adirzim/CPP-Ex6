@@ -30,7 +30,7 @@ void Mediator::AddDevice( Type type, Company company )
 	//Create the player according to type (from factory);
 	switch (type)
 	{
-		//TODO: extract to static method in player in order to be able to add more devices tye in the future
+		
 	case VCR:
 		player = factory.CreateVCRPlayer();
 						
@@ -113,9 +113,10 @@ void Mediator::Forward( Type type, Company company )
 
 	if (it != devices.end()){
 		//if it is the active device stop playing
-		if((it->first.first == active_Player->company) && (it->first.second == active_Player->type)){
-			active_Player = NULL;
+		if (active_Player == it->second && active_Player->isPlaying()){
+			active_Player->stop();
 		}
+
 		//forward
 		it->second->forward();
 	}
@@ -129,12 +130,22 @@ void Mediator::Rewind( Type type, Company company )
 
 	if (it != devices.end()){
 		//if it is the active device stop playing
-		if((it->first.first == active_Player->company) && (it->first.second == active_Player->type)){
-			active_Player = NULL;
+		if (active_Player == it->second && active_Player->isPlaying()){
+			active_Player->stop();
 		}
+
 		//rewind
 		it->second->rewind();
 	}
 	else
 		cout << "No such device in console!" << endl;
+}
+
+void Mediator::Stop( Type type, Company company ){
+
+	iter_t it = devices.find(pair<Company,Type>(company, type));
+
+	if (it != devices.end()){
+		it->second->stop();
+	}
 }

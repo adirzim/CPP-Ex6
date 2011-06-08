@@ -25,8 +25,8 @@ public:
 
 	//devices public methods
 	void Play(Type type, Company company);				//Play on the current Active device and stop all the other devices
-	//TODO: make this function available to all devices
-	void StopActiveDevice();							//Stop the relevant device
+	void StopActiveDevice();							//Stop the active device
+	void Stop( Type type, Company company );			//Stop the relevant device
 	void Forward(Type type, Company company);			//Forward the relevant device
 	void Rewind(Type type, Company company);			//Rewind the relevant device
 
@@ -39,10 +39,11 @@ private:
 	//private members
 	Player* active_Player;								//current Active player
 	map<deviceKey, Player*> devices;					//Map of all console devices
-	//map<Company,Player_Factory*>* factories;			//List of all the companies Factory
-
+	
 	bool SetActiveDevice(Type type, Company company);	//set the Active device according to the requirement. 
 														//and stop the previous Active device Return true on success
+	
+	
 
 };
 

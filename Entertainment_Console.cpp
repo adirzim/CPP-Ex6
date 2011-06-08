@@ -1,12 +1,10 @@
 #include "Entertainment_Console.h"
 
-//TODO: can we remove this
 Entertainment_Console::Entertainment_Console()
 {
 
 }
 
-//TODO: can we remove this
 Entertainment_Console::~Entertainment_Console()
 {
 
@@ -27,6 +25,13 @@ void Entertainment_Console::StopActiveDevice()
 {
 	md.StopActiveDevice();
 }
+
+void Entertainment_Console::Stop (Type type, Company company){
+
+	md.Stop(type, company);
+
+}
+
 
 void Entertainment_Console::Forward( Type type, Company company )
 {
